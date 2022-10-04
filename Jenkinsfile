@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'executing nuxt..'
                 nodejs('Node'){
-                    sh 'npm install'
+                    sh 'yarn install'
                 }
             }
         }
