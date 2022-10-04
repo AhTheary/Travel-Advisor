@@ -8,7 +8,9 @@ pipeline {
                   echo 'installing npm....'
                     sh 'npm install'
                   echo 'run npm....'
+                    sh 'npm run build'
                     sh 'npm run dev'
+                   
                 }
             }
         }
