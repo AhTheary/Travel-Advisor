@@ -15,13 +15,7 @@ pipeline {
                   echo 'installing npm....'
 
                     sh 'npm install'
-
-                }
-            }
-              steps {
-                echo 'executing npm....'
-                nodejs('Node'){
-
+      
                   echo 'run npm....'
                     sh 'npm run build'
                   echo 'run npm dev....'
