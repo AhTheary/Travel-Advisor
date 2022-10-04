@@ -13,8 +13,7 @@ pipeline {
                 echo 'executing npm....'
                 nodejs('Node'){
                   echo 'installing npm....'
-                  sh 'npm cache clean --force'
-                  sh 'rm -rf node_modules'
+
                     sh 'npm install'
                   echo 'run npm....'
                     sh 'npm run build'
