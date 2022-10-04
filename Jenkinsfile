@@ -3,9 +3,9 @@ pipeline {
     stages{
         stage("run frontend"){
             steps {
-                echo 'executing nuxt..'
+                echo 'executing npm....'
                 nodejs('Node'){
-                    sh 'yarn install'
+                    sh 'npm install'
                 }
             }
         }
