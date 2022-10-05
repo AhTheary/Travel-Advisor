@@ -15,6 +15,7 @@ pipeline {
                   echo 'installing npm....'
 
                     sh 'npm install'
+      
                   echo 'run npm....'
                     sh 'npm run build'
                   echo 'run npm dev....'
@@ -22,29 +23,29 @@ pipeline {
                 }
             }
         }
-        stage("run image"){
-            steps {
-                script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                }
-                }
-            }
+//         stage("run image"){
+//             steps {
+//                 script {
+//                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
+//                 }
+//                 }
+//             }
         
-        stage('Deploy Image') {
-            steps{
-                script {
-                    docker.withRegistry( '', registryCredential ) {
-                        dockerImage.push()
-                    }
-                }
-            }
-        }
-        stage('Docker Run') {
-            steps{
-                script {
-                    dockerImage.run("-p 3000:3000 --rm --name mywebContainer")
-                }
-            }
-        }
+//         stage('Deploy Image') {
+//             steps{
+//                 script {
+//                     docker.withRegistry( '', registryCredential ) {
+//                         dockerImage.push()
+//                     }
+//                 }
+//             }
+//         }
+//         stage('Docker Run') {
+//             steps{
+//                 script {
+//                     dockerImage.run("-p 3000:3000 --rm --name mywebContainer")
+//                 }
+//             }
+//         }
     }
 }
